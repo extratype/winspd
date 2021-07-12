@@ -338,7 +338,7 @@ VOID SpdStorageUnitWaitDispatcher(SPD_STORAGE_UNIT *StorageUnit)
 }
 
 VOID SpdStorageUnitSendResponse(SPD_STORAGE_UNIT *StorageUnit,
-    SPD_IOCTL_TRANSACT_RSP *Response, PVOID DataBuffer)
+    SPD_IOCTL_TRANSACT_RSP *Response, PVOID DataBuffer, OVERLAPPED *Overlapped)
 {
     DWORD Error;
 
@@ -350,7 +350,7 @@ VOID SpdStorageUnitSendResponse(SPD_STORAGE_UNIT *StorageUnit,
     }
 
     Error = SpdStorageUnitHandleTransact(StorageUnit->Handle,
-        StorageUnit->Btl, Response, 0, DataBuffer, NULL);
+        StorageUnit->Btl, Response, 0, DataBuffer, Overlapped);
     if (ERROR_SUCCESS != Error)
     {
         SpdStorageUnitSetDispatcherError(StorageUnit, Error);

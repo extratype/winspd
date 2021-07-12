@@ -153,7 +153,7 @@ VOID SpdStorageUnitWaitDispatcher(SPD_STORAGE_UNIT *StorageUnit);
  *     The response data buffer.
  */
 VOID SpdStorageUnitSendResponse(SPD_STORAGE_UNIT *StorageUnit,
-    SPD_IOCTL_TRANSACT_RSP *Response, PVOID DataBuffer);
+    SPD_IOCTL_TRANSACT_RSP *Response, PVOID DataBuffer, OVERLAPPED *Overlapped);
 /**
  * Get the current operation context.
  *
